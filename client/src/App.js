@@ -1,12 +1,19 @@
 import React from 'react';
 import CompaniesListPage from './pages/CompaniesListPage'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import CompanyAnalysisPage from './pages/CompanyAnalysisPage'
 
 const App = () => {
   return (
-    <div>
-      <CompaniesListPage />
-    </div>
+    <Router>
+      <Route exact path='/companies'component={CompaniesListPage} />
+      <Route path='/companies/:companyId'
+        render={({ match }) => <CompanyAnalysisPage companyId={match.params.companyId}/>}/>
+    </Router>
   ) 
 }
+
+
+
 
 export default App;

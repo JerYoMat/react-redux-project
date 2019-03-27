@@ -1,4 +1,4 @@
-
+require 'pry'
 class CompaniesController < ApplicationController
 COMPANY_KEYS =["name", "ticker", "exchange", "fiscal_year", "revenue", "ebit", "current_assets", "current_liabilities", "total_assets", "total_liabilities", "retained_earnings"]
 
@@ -18,6 +18,11 @@ def create
   end 
 
 end
+
+def show
+  @company = Company.find(params[:id])
+  render json: @company
+end 
 
 
 end

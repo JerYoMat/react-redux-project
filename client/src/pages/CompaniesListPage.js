@@ -1,6 +1,7 @@
-import React,{ useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 import NewCompany from '../components/NewCompany'
 import { openNewCompanyModal, closeNewCompanyModal } from '../actions';
 
@@ -30,9 +31,12 @@ const CompaniesListPage = ({
       <ul>
         {companies.map(company => (
           <li key={company.id}>
-          <p>{company.name}</p>
-          <p>{company.ticker}</p>
-          <p>{company.exchange}</p></li>
+           <Link to={'/companies/'+ company.id}>
+            <p>{company.name}</p>
+            <p>{company.ticker}</p>
+            <p>{company.exchange}</p>
+            </Link>
+          </li>
         ))}
       </ul>
       <Modal 
