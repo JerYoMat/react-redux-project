@@ -1,7 +1,8 @@
 import React,{ useState } from 'react';
 import { connect } from 'react-redux';
+import { addCompany } from '../actions';
 
-const CompaniesListPage = ({ companies }) => {
+const CompaniesListPage = ({ companies, dispatch }) => {
   const [companyName, setCompanyName] = useState('');
   const [companyTicker, setCompanyTicker] = useState('');
   const [companyExchange, setCompanyExchange] = useState('');
@@ -12,11 +13,23 @@ const CompaniesListPage = ({ companies }) => {
   const [companyCurrentLiabilities, setCompanyCurrentLiabilities] = useState('');
   const [companyTotalAssets, setCompanyTotalAssets] = useState('');
   const [companyTotalLiabilities, setCompanyTotalLiabilities] = useState('');
-  const [companyReatainedEarnigns, setCompanyReatainedEarnigns] = useState('');
+  const [companyRetainedEarnings, setCompanyRetainedEarnings] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    
+    dispatch(addCompany(
+      companyName, 
+      companyTicker,
+      companyExchange, 
+      companyFiscalYear,
+      companyRevenue,
+      companyEbit,
+      companyCurrentAssets,
+      companyCurrentLiabilities,
+      companyTotalAssets,
+      companyTotalLiabilities,
+      companyRetainedEarnings
+      ))
   }
   return (
   companies.length === 0 ? (
@@ -33,7 +46,7 @@ const CompaniesListPage = ({ companies }) => {
         <label>Total Current Liabilities:<input value={companyCurrentLiabilities} onChange={e => setCompanyCurrentLiabilities(e.target.value)}/></label>
         <label>Total Assets:<input value={companyTotalAssets} onChange={e => setCompanyTotalAssets(e.target.value)}/></label>
         <label>Total Liabilities:<input value={companyTotalLiabilities} onChange={e => setCompanyTotalLiabilities(e.target.value)}/></label>
-        <label>Retained Earnings:<input value={companyReatainedEarnigns} onChange={e => setCompanyReatainedEarnigns(e.target.value)}/></label>
+        <label>Retained Earnings:<input value={companyRetainedEarnings} onChange={e => setCompanyRetainedEarnings(e.target.value)}/></label>
         <button type='submit'>Add Company</button>
       </form>
     </div>
@@ -41,7 +54,10 @@ const CompaniesListPage = ({ companies }) => {
     <div>
       <ul>
         {companies.map(company => (
-          <li key={company.id}>{company.name}</li>
+          <li key={company.id}>
+          <p>{company.name}</p>
+          <p>{company.ticker}</p>
+          <p>{company.exchange}</p></li>
         ))}
       </ul>
     </div>
