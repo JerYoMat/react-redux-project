@@ -12,6 +12,7 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.integer :total_assets
       t.integer :total_liabilities
       t.integer :retained_earnings
+      t.integer :intangible_assets
       t.timestamps
     end
   end

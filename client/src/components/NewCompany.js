@@ -18,6 +18,7 @@ const NewCompany = ({
   const [companyTotalAssets, setCompanyTotalAssets] = useState('');
   const [companyTotalLiabilities, setCompanyTotalLiabilities] = useState('');
   const [companyRetainedEarnings, setCompanyRetainedEarnings] = useState('');
+  const [companyIntangibleAssets, setCompanyIntangibleAssets] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -32,7 +33,8 @@ const NewCompany = ({
       companyCurrentLiabilities,
       companyTotalAssets,
       companyTotalLiabilities,
-      companyRetainedEarnings
+      companyRetainedEarnings,
+      companyIntangibleAssets
       ))
   }
   
@@ -57,6 +59,7 @@ const NewCompany = ({
         <label>Total Assets:<input disabled={saveInProgress}value={companyTotalAssets} onChange={e => setCompanyTotalAssets(e.target.value)}/></label>
         <label>Total Liabilities:<input disabled={saveInProgress}value={companyTotalLiabilities} onChange={e => setCompanyTotalLiabilities(e.target.value)}/></label>
         <label>Retained Earnings:<input disabled={saveInProgress}value={companyRetainedEarnings} onChange={e => setCompanyRetainedEarnings(e.target.value)}/></label>
+        <label>Intangible Assets:<input disabled={saveInProgress}value={companyIntangibleAssets} onChange={e => setCompanyIntangibleAssets(e.target.value)}/></label>
         <button disabled={saveInProgress} type='submit'>Add Company</button>
       </form>
     </div>

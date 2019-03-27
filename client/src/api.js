@@ -4,7 +4,7 @@ export const getCompanies = () => {
 }
 
 
-export const createCompany = (name, ticker, exchange, fiscalYear, revenue, ebit, currentAssets, currentLiabilities, totalAssets, totalLiabilities, retainedEarnings) => {
+export const createCompany = (name, ticker, exchange, fiscalYear, revenue, ebit, currentAssets, currentLiabilities, totalAssets, totalLiabilities, retainedEarnings, intangibleAssets) => {
   return postData('/companies', {
     name: name,
     ticker: ticker,
@@ -16,7 +16,8 @@ export const createCompany = (name, ticker, exchange, fiscalYear, revenue, ebit,
     current_liabilities: currentLiabilities,
     total_assets: totalAssets,
     total_liabilities: totalLiabilities,
-    retained_earnings: retainedEarnings
+    retained_earnings: retainedEarnings,
+    intangible_assets: intangibleAssets
   });
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NotFoundPage from './NotFoundPage';
-import { Route, Redirect } from 'react-router-dom';
+
 
 const CompanyAnalysisPage = ({ companyId, company, loading }) => {
   if (loading) {

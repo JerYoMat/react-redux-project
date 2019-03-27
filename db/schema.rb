@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_074732) do
     t.integer "total_assets"
     t.integer "total_liabilities"
     t.integer "retained_earnings"
+    t.integer "intangible_assets"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
