@@ -1,3 +1,9 @@
+export const getCompanies = () => {
+  return fetch('/companies')
+    .then(response => response.json())
+}
+
+
 export const createCompany = (name, ticker, exchange, fiscalYear, revenue, ebit, currentAssets, currentLiabilities, totalAssets, totalLiabilities, retainedEarnings) => {
   return postData('/companies', {
     name: name,

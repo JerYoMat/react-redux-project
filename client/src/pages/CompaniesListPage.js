@@ -2,7 +2,14 @@ import React,{ useState } from 'react';
 import { connect } from 'react-redux';
 import { addCompany } from '../actions';
 
-const CompaniesListPage = ({ companies, dispatch }) => {
+const CompaniesListPage = ({ 
+  companies, 
+  dispatch,
+  saveInProgress,  
+  companyCreateError,
+  loadingCompanies,
+  companyLoadError
+}) => {
   const [companyName, setCompanyName] = useState('');
   const [companyTicker, setCompanyTicker] = useState('');
   const [companyExchange, setCompanyExchange] = useState('');
@@ -31,23 +38,37 @@ const CompaniesListPage = ({ companies, dispatch }) => {
       companyRetainedEarnings
       ))
   }
+
+  if (loadingCompanies) {
+    return <div/>;
+  }
+  
+  if (companyLoadError) {
+    return <div className='error-message'>{companyLoadError.message}</div>
+  }
+
   return (
   companies.length === 0 ? (
     <div>
       <h1>Add A Company:</h1>
       <form onSubmit={handleSubmit}>
-        <label>Name:<input value={companyName} onChange={e => setCompanyName(e.target.value)} /></label>
-        <label>Ticker:<input value={companyTicker} onChange={e => setCompanyTicker(e.target.value)}/></label>
-        <label>Exchange:<input value={companyExchange} onChange={e => setCompanyExchange(e.target.value)}/></label>
-        <label>Fiscal Year:<input value={companyFiscalYear} onChange={e => setCompanyFiscalYear(e.target.value)}/></label>
-        <label>Revenue:<input value={companyRevenue} onChange={e => setCompanyRevenue(e.target.value)}/></label>
-        <label>Ebit:<input value={companyEbit} onChange={e => setCompanyEbit(e.target.value)}/></label>
-        <label>Total Current Assets:<input value={companyCurrentAssets} onChange={e => setCompanyCurrentAssets(e.target.value)}/></label>
-        <label>Total Current Liabilities:<input value={companyCurrentLiabilities} onChange={e => setCompanyCurrentLiabilities(e.target.value)}/></label>
-        <label>Total Assets:<input value={companyTotalAssets} onChange={e => setCompanyTotalAssets(e.target.value)}/></label>
-        <label>Total Liabilities:<input value={companyTotalLiabilities} onChange={e => setCompanyTotalLiabilities(e.target.value)}/></label>
-        <label>Retained Earnings:<input value={companyRetainedEarnings} onChange={e => setCompanyRetainedEarnings(e.target.value)}/></label>
-        <button type='submit'>Add Company</button>
+        {companyCreateError && (
+            <div className="error-message">
+              Error: {companyCreateError.message}
+            </div>
+          )}
+        <label>Name:<input disabled={saveInProgress}value={companyName} onChange={e => setCompanyName(e.target.value)} /></label>
+        <label>Ticker:<input disabled={saveInProgress}value={companyTicker} onChange={e => setCompanyTicker(e.target.value)}/></label>
+        <label>Exchange:<input disabled={saveInProgress}value={companyExchange} onChange={e => setCompanyExchange(e.target.value)}/></label>
+        <label>Fiscal Year:<input disabled={saveInProgress}value={companyFiscalYear} onChange={e => setCompanyFiscalYear(e.target.value)}/></label>
+        <label>Revenue:<input disabled={saveInProgress}value={companyRevenue} onChange={e => setCompanyRevenue(e.target.value)}/></label>
+        <label>Ebit:<input disabled={saveInProgress}value={companyEbit} onChange={e => setCompanyEbit(e.target.value)}/></label>
+        <label>Total Current Assets:<input disabled={saveInProgress}value={companyCurrentAssets} onChange={e => setCompanyCurrentAssets(e.target.value)}/></label>
+        <label>Total Current Liabilities:<input disabled={saveInProgress}value={companyCurrentLiabilities} onChange={e => setCompanyCurrentLiabilities(e.target.value)}/></label>
+        <label>Total Assets:<input disabled={saveInProgress}value={companyTotalAssets} onChange={e => setCompanyTotalAssets(e.target.value)}/></label>
+        <label>Total Liabilities:<input disabled={saveInProgress}value={companyTotalLiabilities} onChange={e => setCompanyTotalLiabilities(e.target.value)}/></label>
+        <label>Retained Earnings:<input disabled={saveInProgress}value={companyRetainedEarnings} onChange={e => setCompanyRetainedEarnings(e.target.value)}/></label>
+        <button disabled={saveInProgress} type='submit'>Add Company</button>
       </form>
     </div>
     ) : (
@@ -66,7 +87,11 @@ const CompaniesListPage = ({ companies, dispatch }) => {
 }
 
 const mapStateToProps = state => ({
-  companies: state.companies
+  companies: state.companies,
+  saveInProgress: state.saveInProgress,  
+  companyCreateError: state.companyCreateError,
+  loadingCompanies: state.loadingCompanies,
+  companyLoadError: state.companyLoadError
 })
 
 export default connect(mapStateToProps)(CompaniesListPage);

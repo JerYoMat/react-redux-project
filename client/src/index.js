@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import reducer from './reducer';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
+import { loadCompanies } from './actions';
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -17,7 +18,7 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(applyMiddleware(thunk));
 const store = createStore(reducer, enhancer);
-
+store.dispatch(loadCompanies());
 ReactDOM.render(
   <Provider store={store}>
     <App />

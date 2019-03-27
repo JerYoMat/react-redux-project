@@ -1,9 +1,9 @@
-import { createCompany } from './api'
+import { createCompany, getCompanies } from './api'
 
+//* For adding a new company not in DB
 export const ADD_COMPANY_BEGIN = 'ADD_COMPANY_BEGIN';
 export const ADD_COMPANY_SUCCESS = 'ADD_COMPANY_SUCCESS';
 export const ADD_COMPANY_ERROR = 'ADD_COMPANY_ERROR';
-
 
 export const addCompany = (name, ticker, exchange, fiscalYear, revenue, ebit, currentAssets, currentLiabilities, totalAssets, totalLiabilities, retainedEarnings) => {
   return dispatch => {
@@ -15,5 +15,23 @@ export const addCompany = (name, ticker, exchange, fiscalYear, revenue, ebit, cu
     .catch(error => {
       dispatch({ type: ADD_COMPANY_ERROR, error })
     })
+  }
+}
+
+//* For loading existing companies from DB
+export const LOAD_COMPANIES_BEGIN = 'LOAD_COMPANIES_BEGIN';
+export const LOAD_COMPANIES_SUCCESS = 'LOAD_COMPANIES_SUCCESS';
+export const LOAD_COMPANIES_ERROR = 'LOAD_COMPANIES_ERROR';
+
+export const loadCompanies = () => {
+  return dispatch => {
+    dispatch({ type: LOAD_COMPANIES_BEGIN })
+    getCompanies()
+      .then(companies => {
+        dispatch({ type: LOAD_COMPANIES_SUCCESS, payload: companies})  
+      })
+      .catch(error => {
+        dispatch({ type: LOAD_COMPANIES_ERROR, error})
+      })
   }
 }
