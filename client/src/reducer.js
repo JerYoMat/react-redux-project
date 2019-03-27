@@ -5,7 +5,9 @@ import {
   ADD_COMPANY_ERROR,
   LOAD_COMPANIES_BEGIN,
   LOAD_COMPANIES_SUCCESS,
-  LOAD_COMPANIES_ERROR 
+  LOAD_COMPANIES_ERROR,
+  OPEN_NEW_COMPANY_MODAL,
+  CLOSE_NEW_COMPANY_MODAL 
 } from './actions';
 
 const initialState = {
@@ -13,7 +15,8 @@ const initialState = {
   saveInProgress: false,  //For the Form
   companyCreateError: null,
   loadingCompanies: false, //For Loading from the db
-  companyLoadError: null
+  companyLoadError: null,
+  newCompanyModalOpen: false
 }
 
 const reducer = produce((draft, action) => {
@@ -26,6 +29,7 @@ const reducer = produce((draft, action) => {
       draft.companies.push(action.payload)
       draft.saveInProgress=false;
       draft.companyCreateError=null;
+      draft.newCompanyModalOpen=false;
       return;
     case ADD_COMPANY_ERROR:
       draft.saveInProgress=false;
@@ -43,6 +47,13 @@ const reducer = produce((draft, action) => {
     case LOAD_COMPANIES_ERROR:
       draft.loadingCompanies=false;
       draft.companyLoadError = action.error;
+      return;
+    case OPEN_NEW_COMPANY_MODAL:
+      draft.newCompanyModalOpen=true;
+      return;
+    case CLOSE_NEW_COMPANY_MODAL:
+      draft.newCompanyModalOpen=false;
+      draft.companyCreateErro=null;
       return;
     default:
       return;

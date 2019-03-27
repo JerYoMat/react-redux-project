@@ -5,6 +5,7 @@ export const ADD_COMPANY_BEGIN = 'ADD_COMPANY_BEGIN';
 export const ADD_COMPANY_SUCCESS = 'ADD_COMPANY_SUCCESS';
 export const ADD_COMPANY_ERROR = 'ADD_COMPANY_ERROR';
 
+
 export const addCompany = (name, ticker, exchange, fiscalYear, revenue, ebit, currentAssets, currentLiabilities, totalAssets, totalLiabilities, retainedEarnings) => {
   return dispatch => {
   dispatch({ type: ADD_COMPANY_BEGIN})
@@ -17,6 +18,18 @@ export const addCompany = (name, ticker, exchange, fiscalYear, revenue, ebit, cu
     })
   }
 }
+//Dealing with Modal for Creating a new company
+export const OPEN_NEW_COMPANY_MODAL = 'OPEN_NEW_COMPANY_MODAL';
+export const CLOSE_NEW_COMPANY_MODAL = 'CLOSE_NEW_COMPANY_MODAL';
+
+export const openNewCompanyModal = () => ({
+  type: OPEN_NEW_COMPANY_MODAL
+})
+export const closeNewCompanyModal = () => ({
+  type: CLOSE_NEW_COMPANY_MODAL
+})
+
+
 
 //* For loading existing companies from DB
 export const LOAD_COMPANIES_BEGIN = 'LOAD_COMPANIES_BEGIN';
@@ -35,3 +48,5 @@ export const loadCompanies = () => {
       })
   }
 }
+
+
