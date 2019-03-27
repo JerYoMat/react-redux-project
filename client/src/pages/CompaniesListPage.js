@@ -31,10 +31,10 @@ const CompaniesListPage = ({
       <ul>
         {companies.map(company => (
           <li key={company.id}>
-           <Link to={'/companies/'+ company.id}>
-            <p>{company.name}</p>
-            <p>{company.ticker}</p>
-            <p>{company.exchange}</p>
+            <Link to={'/companies/'+ company.id}>
+              <p>{company.name}</p>
+              <p>{company.ticker}</p>
+              <p>{company.exchange}</p>
             </Link>
           </li>
         ))}
