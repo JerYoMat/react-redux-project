@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
 import { connect } from 'react-redux';
+import Modal from 'react-modal';
 import { addCompany } from '../actions';
 
 const CompaniesListPage = ({ 
@@ -81,6 +82,9 @@ const CompaniesListPage = ({
           <p>{company.exchange}</p></li>
         ))}
       </ul>
+      <Modal isOpen={true}>
+        Placeholder
+      </Modal>
     </div>
     )
   )

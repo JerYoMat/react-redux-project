@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import Modal from 'react-modal';
 import reducer from './reducer';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -19,6 +20,7 @@ const composeEnhancers =
 const enhancer = composeEnhancers(applyMiddleware(thunk));
 const store = createStore(reducer, enhancer);
 store.dispatch(loadCompanies());
+Modal.setAppElement('#root');
 ReactDOM.render(
   <Provider store={store}>
     <App />
