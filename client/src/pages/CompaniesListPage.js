@@ -28,17 +28,19 @@ const CompaniesListPage = ({
     <div>
       <h1>Company Index:</h1>
       <button onClick={openNewCompanyModal}>Add Company</button>
-      <ul>
+      
         {companies.map(company => (
-          <li key={company.id}>
+          <div className='card col-md-8'key={company.id}>
             <Link to={'/companies/'+ company.id}>
-              <p>{company.name}</p>
-              <p>{company.ticker}</p>
-              <p>{company.exchange}</p>
+              <div className='card-body'>
+                <p>Name: {company.name}</p>
+                <p>Ticker: {company.ticker}</p>
+                <p>Exchange: {company.exchange}</p>
+              </div>
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      
       <Modal 
         isOpen={isModalOpen}
         onRequestClose={closeNewCompanyModal}

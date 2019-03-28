@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
-const BarChart = ({ zScore, name, seriesData }) => {
+const BarChart = ({ name, seriesData }) => {
 
   const data = {
     labels: ['A', 'B', 'C', 'D', 'E'],
@@ -17,14 +17,17 @@ const BarChart = ({ zScore, name, seriesData }) => {
       }
     ]
   };
+  const options = {
+    legend: {
+      display: false
+    }
+  }
 
   
   return (
     <div className='card col-md-6'>
       <div className='card-body'>
-      <h5 className='card-title'>Altman-Z Score: {zScore}</h5>
-      <Bar data={data}/></div>
-      
+      <Bar data={data} options={options}/></div>
     </div>
   )
 }
