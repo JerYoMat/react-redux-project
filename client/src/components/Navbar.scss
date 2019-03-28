@@ -1,0 +1,46 @@
+$primary:white;
+$active: #00b3e6;
+$background-one: #013240;
+
+nav.navbar {
+  background-color: #013240;
+  color: white;
+  a.navbar-brand {
+    color: $active;
+    font-size: 1.5em;
+    margin-right: 3px;
+    span{ 
+      color: $primary;
+      line-height: 90%;}
+  }
+}
+
+
+
+.nav-item::after{
+  content:'';
+  display:block;
+  width:0px;height:2px;
+  background:#00b3e6;
+  transition: 0.5s;
+}
+.nav-link{transition:0.2s;}
+.nav-link { 
+  margin-bottom: -0.5em;
+}
+
+
+.nav-link {
+  color: white;
+}
+.nav-item:hover::after{
+  width:95%;
+}
+.nav-item .nav-link:hover{
+  color:#00b3e6;
+}
+
+
+
+
+
