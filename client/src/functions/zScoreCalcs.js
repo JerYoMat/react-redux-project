@@ -1,5 +1,5 @@
+
 const zScoreCalcs = (company) => {
-  
   const scoreObj = {
     a: null,
     b: null,
@@ -7,6 +7,7 @@ const zScoreCalcs = (company) => {
     d: null,
     e: null
   }
+  
   // Raw Calcs
   scoreObj.a = 3.107 * (company.ebit / company.total_assets);
   scoreObj.b = 0.998 * (company.revenue / company.total_assets);
@@ -14,7 +15,9 @@ const zScoreCalcs = (company) => {
   scoreObj.d = 0.717 * ((company.current_assets - company.current_liabilities) / company.total_assets)
   scoreObj.e = 0.847 * (company.retained_earnings / company.total_assets)
 
-  //Add bounds -4 to -8
+
+  //Add bounds -4 to 8
+  let zScore = 0;
   for (let property in scoreObj) {
     if (scoreObj[property] < -4) {
       scoreObj[property] = -4
@@ -22,8 +25,16 @@ const zScoreCalcs = (company) => {
     if (scoreObj[property] > 8) {
       scoreObj[property] = 8
     }
-  }  
-  return scoreObj
+  //Add up for Altman Z-Score
+    zScore += scoreObj[property]
+    scoreObj[property] = scoreObj[property].toFixed(2)
+  } 
+  const zScoreObj = {
+    zScore: zScore.toFixed(2),
+    data: scoreObj
+  } 
+  return zScoreObj;
+
 }
 
 
