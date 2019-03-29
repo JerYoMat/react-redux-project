@@ -11,12 +11,13 @@ nav.navbar {
     margin-right: 3px;
     span{ 
       color: $primary;
-      line-height: 90%;}
+      line-height: 90%;
+    }
   }
 }
 
-
-
+/*Limit hover of nav-items to expanded version*/
+@media (min-width: 768px) { 
 .nav-item::after{
   content:'';
   display:block;
@@ -39,7 +40,7 @@ nav.navbar {
 .nav-item .nav-link:hover{
   color:#00b3e6;
 }
-
+}
 
 
 
