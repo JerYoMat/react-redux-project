@@ -1,0 +1,55 @@
+$primary:white;
+$active: #00b3e6;
+$background-one: #013240;
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+nav.navbar {
+  background-color: #013240;
+  color: white;
+  a.navbar-brand {
+    color: $active;
+    font-size: 1.5em;
+    margin-right: 3px;
+    span{ 
+      color: $primary;
+      font-size: 1em;
+      line-height: 90%;
+    }
+  }
+}
+
+
+
+/*Limit hover of nav-items to expanded version*/
+@media (min-width: 768px) { 
+  .nav-item::after{
+    content:'';
+    display:block;
+    width:0px;height:2px;
+    background:#00b3e6;
+    transition: 0.5s;
+  }
+  .nav-link{transition:0.2s;}
+  a.nav-link { 
+    margin-bottom: -0.5em;
+  }
+
+  .nav-item:hover::after{
+    width:95%;
+  }
+ 
+
+}
+
+
+a.nav-link {
+  color: whitesmoke;
+  &:active{
+    color: $active;
+  }
+  
+}
+

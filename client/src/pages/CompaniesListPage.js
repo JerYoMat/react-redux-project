@@ -42,6 +42,7 @@ const CompaniesListPage = ({
         ))}
       
       <Modal 
+        className='new-company-modal'
         isOpen={isModalOpen}
         onRequestClose={closeNewCompanyModal}
       >

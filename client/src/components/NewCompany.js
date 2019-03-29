@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { addCompany } from '../actions';
 import { connect } from 'react-redux';
+import './NewCompany.scss';
 
 const NewCompany = ({ 
   dispatch,
@@ -41,13 +42,14 @@ const NewCompany = ({
   
   return (
     <div>
-      <h1>Add A Company:</h1>
+      
       <form onSubmit={handleSubmit}>
         {companyCreateError && (
             <div className="error-message">
               Error: {companyCreateError.message}
             </div>
           )}
+          <h3>Add Company Manually:</h3>
         <label>Name:<input disabled={saveInProgress}value={companyName} onChange={e => setCompanyName(e.target.value)} /></label>
         <label>Ticker:<input disabled={saveInProgress}value={companyTicker} onChange={e => setCompanyTicker(e.target.value)}/></label>
         <label>Exchange:<input disabled={saveInProgress}value={companyExchange} onChange={e => setCompanyExchange(e.target.value)}/></label>

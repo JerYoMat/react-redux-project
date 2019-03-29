@@ -1,8 +1,8 @@
 import React from 'react';
 import CompaniesListPage from './pages/CompaniesListPage'
-import { BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import CompanyAnalysisPage from './pages/CompanyAnalysisPage'
-import Navbar from './components/Navbar'
+import NavbarCustom from './components/NavbarCustom'
 
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
 
     <Router>
       <React.Fragment>
-        <Navbar />
+        <NavbarCustom />
         <Route exact path='/companies'component={CompaniesListPage} />
         <Route path='/companies/:companyId'
         render={({ match }) => <CompanyAnalysisPage companyId={match.params.companyId}/>}/>

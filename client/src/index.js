@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -6,8 +7,8 @@ import thunk from 'redux-thunk';
 import Modal from 'react-modal';
 import reducer from './reducer';
 import App from './App';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
+
+
 import { loadCompanies } from './actions';
 
 const composeEnhancers =
