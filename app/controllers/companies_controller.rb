@@ -1,7 +1,5 @@
 require 'pry'
 class CompaniesController < ApplicationController
-COMPANY_KEYS =["name", "ticker", "exchange", "fiscal_year", "revenue", "ebit", "current_assets", "current_liabilities", "total_assets", "total_liabilities", "retained_earnings", "intangible_assets"]
-
   def index
   @companies = Company.all
   render json: @companies
@@ -9,9 +7,9 @@ end
 
 def create  
   @company = Company.new
-  COMPANY_KEYS.each do |key|
-    @company[key] = params[key]
-  end 
+  @company.name = params['company']['name']
+  @company.ticker = params['company']['ticker']
+  @company.exchange = params['company']['exchange'] 
   if @company.save
     render json: @company
   end 

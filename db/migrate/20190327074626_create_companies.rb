@@ -4,7 +4,7 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :ticker
       t.string :exchange
-      t.belongs_to :user
+      #t.belongs_to :user
       t.timestamps
     end
   end

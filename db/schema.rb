@@ -16,10 +16,8 @@ ActiveRecord::Schema.define(version: 2019_03_30_185520) do
     t.string "name"
     t.string "ticker"
     t.string "exchange"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "financial_periods", force: :cascade do |t|
