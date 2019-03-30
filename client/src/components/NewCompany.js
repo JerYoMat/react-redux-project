@@ -31,9 +31,10 @@ class NewCompany extends Component {
       //TODO: Update and insert addCompany action creator
     )
   }
-  setInputValue = e => {
-
+  handleChange(e) {
+    this.setState({value: e.target.value});
   }
+
 
   render() {
     return (
@@ -44,7 +45,11 @@ class NewCompany extends Component {
             </div>
           )}
           <h3>Add Company Manually:</h3>
-        <label>Name:<input disabled={this.props.saveInProgress}value={{/*TODO:*/}} onChange={e => this.setInputValue(e.target.value)} /></label>
+          <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
       </form>
     );
   }
