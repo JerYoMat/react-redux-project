@@ -9,16 +9,7 @@ class NewCompany extends Component {
     this.state={
       name: '',
       ticker: '',
-      exchange: '',
-      fiscalYear: null,
-      revenue: null,
-      ebit: null,
-      currentAssets: null,
-      currentLiabilities: null,
-      intangibleAssets: null,
-      totalAssets: null,
-      totalLiabilities: null,
-      retainedEarnings: null
+      exchange: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,12 +18,12 @@ class NewCompany extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.dispatch(
-      //TODO: Update and insert addCompany action creator
+   this.props.dispatch(
+      addCompany(this.state)
     )
   }
   handleChange(e) {
-    this.setState({value: e.target.value});
+    this.setState({ [e.target.name]: e.target.value});
   }
 
 
@@ -44,11 +35,20 @@ class NewCompany extends Component {
               Error: {this.props.companyCreateError.message}
             </div>
           )}
-          <h3>Add Company Manually:</h3>
-          <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
+          <h3>Add A New Company:</h3>
+            <div>
+              <label>Name:</label>
+              <input name='name' type="text" value={this.state.name} onChange={this.handleChange} />
+            </div>
+            <div>
+              <label>Ticker:</label>
+              <input name='ticker' type="text" value={this.state.ticker} onChange={this.handleChange} />
+            </div>
+            <div>
+              <label>Primary Exchange:</label>
+              <input name='exchange' type="text" value={this.state.exchange} onChange={this.handleChange} />
+            </div>
+
         <input type="submit" value="Submit" />
       </form>
     );
@@ -62,3 +62,13 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps)(NewCompany);
 
+/*
+      fiscalYear: null,
+      revenue: null,
+      ebit: null,
+      currentAssets: null,
+      currentLiabilities: null,
+      intangibleAssets: null,
+      totalAssets: null,
+      totalLiabilities: null,
+      retainedEarnings: null */

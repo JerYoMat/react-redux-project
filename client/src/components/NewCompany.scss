@@ -1,15 +1,17 @@
 form {
   background-color: white;
   border: 2px solid #013240;
+
   border-radius: 15px;
-  max-width: 33em;
+  max-width: 35em;
   box-sizing: border-box;
   margin: auto;
-  padding: 1.5em 2em 3em;
+  padding: 1.5em 2em ;
 
   label{
-    display: block;
-    margin: 1.5em 2em;
+    display: inline-block;
+    width: 10em;
+    margin: 1.5em 1em;
     input {
       position: relative;;
       float: right;
@@ -17,7 +19,7 @@ form {
     }
   }
   button {
-    float: right;
+  
     margin-bottom: 1.5em;
   }
   

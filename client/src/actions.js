@@ -6,10 +6,10 @@ export const ADD_COMPANY_SUCCESS = 'ADD_COMPANY_SUCCESS';
 export const ADD_COMPANY_ERROR = 'ADD_COMPANY_ERROR';
 
 
-export const addCompany = (name, ticker, exchange, fiscalYear, revenue, ebit, currentAssets, currentLiabilities, totalAssets, totalLiabilities, retainedEarnings, intangibleAssets) => {
+export const addCompany = (companyData) => {
   return dispatch => {
   dispatch({ type: ADD_COMPANY_BEGIN})
-  createCompany(name, ticker, exchange, fiscalYear, revenue, ebit, currentAssets, currentLiabilities, totalAssets, totalLiabilities, retainedEarnings, intangibleAssets)
+  createCompany(companyData)
     .then(company => {
       dispatch({ type: ADD_COMPANY_SUCCESS, payload: company })
     })
