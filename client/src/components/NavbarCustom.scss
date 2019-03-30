@@ -11,12 +11,16 @@ nav.navbar {
   color: white;
   a.navbar-brand {
     color: $active;
-    font-size: 1.5em;
-    margin-right: 3px;
+    img {
+      line-height: 1em;
+      height: 1.2em;
+      margin-right: 3px;
+    }
     span{ 
       color: $primary;
       font-size: 1em;
       line-height: 90%;
+      margin-bottom: -0.5em;
     }
   }
 }
