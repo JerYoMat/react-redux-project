@@ -1,0 +1,13 @@
+import React from 'react';
+import './Home.css';
+
+
+
+
+function Home() {
+    return (
+    <div className='jumbotron jumbotron-fluid'>Test</div>
+    )
+}
+
+export default Home;
