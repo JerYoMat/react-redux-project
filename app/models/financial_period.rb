@@ -1,0 +1,2 @@
+class FinancialPeriod < ApplicationRecord
+end

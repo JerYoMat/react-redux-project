@@ -10,32 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_074732) do
+ActiveRecord::Schema.define(version: 2019_03_30_185520) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "ticker"
     t.string "exchange"
-    t.integer "fiscal_year"
-    t.integer "revenue"
-    t.integer "ebit"
-    t.integer "current_assets"
-    t.integer "current_liabilities"
-    t.integer "total_assets"
-    t.integer "total_liabilities"
-    t.integer "retained_earnings"
-    t.integer "intangible_assets"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "company_id"
+  create_table "financial_periods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_favorites_on_company_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
