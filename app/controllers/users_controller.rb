@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-       render {'Fail'} 
+      render {'Fail'} 
     end 
   end 
 
