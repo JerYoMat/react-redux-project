@@ -13,9 +13,12 @@
 ActiveRecord::Schema.define(version: 2019_03_30_185520) do
 
   create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.string "ticker"
-    t.string "exchange"
+    t.string "companyname"
+    t.string "primarysymbol"
+    t.string "primaryexchange"
+    t.string "siccode"
+    t.string "sicdescription"
+    t.string "cik"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

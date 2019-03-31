@@ -1,3 +1,4 @@
 class CompanySerializer < ActiveModel::Serializer
-  attributes :id, :name, :ticker, :exchange
+  attributes :id, :companyname, :primarysymbol, :primaryexchange, :siccode, :sicdescription, :cik
+  
 end
