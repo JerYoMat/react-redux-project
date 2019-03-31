@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signup, login} from '../actions';
-import './LoginPage.css';
+import './LoginForm.css';
 
 const LoginPage = ({userError, loadingUser,login, signup}) => {
   const [email, setEmail] = useState('');
@@ -17,6 +17,7 @@ const LoginPage = ({userError, loadingUser,login, signup}) => {
         <input
           name='email'
           value={email}
+          disabled={loadingUser}
           onChange={e => setEmail(e.target.value)}
         />
       </label>
@@ -26,6 +27,7 @@ const LoginPage = ({userError, loadingUser,login, signup}) => {
           name='password'
           type='password'
           value={password}
+          disable={loadingUser}
           onChange={e => setPassword(e.target.value)}
         />
       </label>
