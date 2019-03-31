@@ -19,7 +19,7 @@ class NewCompany extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-   this.props.dispatch(
+    this.props.dispatch(
       addCompany(this.state)
     )
   }
@@ -60,6 +60,8 @@ const mapStateToProps = (state) => ({
   saveInProgress: state.saveInProgress,  
   companyCreateError: state.companyCreateError
 })
+
+
 
 export default connect(mapStateToProps)(NewCompany);
 
