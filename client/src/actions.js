@@ -1,10 +1,9 @@
-import { createCompany, getCompanies } from './api'
+import { createCompany, getCompanies, loginUser, createUser } from './api'
 
 //* For adding a new company not in DB
 export const ADD_COMPANY_BEGIN = 'ADD_COMPANY_BEGIN';
 export const ADD_COMPANY_SUCCESS = 'ADD_COMPANY_SUCCESS';
 export const ADD_COMPANY_ERROR = 'ADD_COMPANY_ERROR';
-
 
 export const addCompany = (companyData) => {
   return dispatch => {
@@ -18,6 +17,7 @@ export const addCompany = (companyData) => {
     })
   }
 }
+
 //Dealing with Modal for Creating a new company
 export const OPEN_NEW_COMPANY_MODAL = 'OPEN_NEW_COMPANY_MODAL';
 export const CLOSE_NEW_COMPANY_MODAL = 'CLOSE_NEW_COMPANY_MODAL';
@@ -49,4 +49,39 @@ export const loadCompanies = () => {
   }
 }
 
+/*Login Flow */
+export const LOGIN_BEGIN = 'LOGIN_BEGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
 
+
+export const login = (email, password) => {
+  return dispatch => {
+    dispatch({ type: LOGIN_BEGIN })
+    loginUser(email, password)
+      .then(user => {
+        dispatch({ type: LOGIN_SUCCESS, payload: user})  
+      })
+      .catch(error => {
+        dispatch({ type: LOGIN_ERROR, error})
+      })
+  }
+}
+/*Signup Flow */
+export const SIGNUP_BEGIN = 'SIGNUP_BEGIN';
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+
+export const signup = (email, password) => {
+  return dispatch => {
+    dispatch({ type: SIGNUP_BEGIN })
+    console.log(email, password)
+    createUser(email, password)
+      .then(user => {
+        dispatch({ type: SIGNUP_SUCCESS, payload: user})  
+      })
+      .catch(error => {
+        dispatch({ type: SIGNUP_ERROR, error})
+      })
+  }
+}

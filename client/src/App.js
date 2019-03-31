@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import CompanyAnalysisPage from './pages/CompanyAnalysisPage'
 import NavbarCustom from './components/NavbarCustom'
 import Home from './pages/Home';
+import LoginPage from './pages/LoginPage';
 
 const App = () => {
+  return <LoginPage/ >;
   return (
     <Router>
       <React.Fragment>

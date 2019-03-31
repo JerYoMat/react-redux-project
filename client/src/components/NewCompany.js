@@ -3,6 +3,7 @@ import { addCompany } from '../actions';
 import { connect } from 'react-redux';
 import './NewCompany.scss';
 
+
 class NewCompany extends Component {
   constructor(props) {
     super(props);

@@ -4,6 +4,8 @@ import NotFoundPage from './NotFoundPage';
 import BarChart from '../components/BarChart';
 import zScoreCalcs from '../functions/zScoreCalcs';
 import Table from '../components/Table';
+import NewFinancialPeriod from '../components/NewFinancialPeriod';
+
 
 const CompanyAnalysisPage = ({ companyId, company, loading }) => {
   if (loading) {
@@ -21,6 +23,7 @@ const CompanyAnalysisPage = ({ companyId, company, loading }) => {
   return (
     <div>
     <h2>{company.name}</h2>
+    <NewFinancialPeriod />
     <h4 className={'alert alert-'+zScoreObj.risk.label}>
       Altman Z-Score: {zScore} - {zScoreObj.risk.message}
     </h4>

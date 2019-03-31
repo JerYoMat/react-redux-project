@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get '/search/:name', to: 'companies#search'
   resources :companies, only: [:index, :create, :show]
-  resources :users
+  post '/users', to: 'users#create'
 end
