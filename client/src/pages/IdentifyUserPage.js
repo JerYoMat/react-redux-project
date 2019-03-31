@@ -3,6 +3,7 @@ import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm'
 import { connect } from 'react-redux';
 import { signup, login} from '../actions';
+import './IdentifyUserPage.css';
 
 class IdentifyUserPage extends Component {
   state = {
@@ -37,12 +38,12 @@ class IdentifyUserPage extends Component {
   render() {
     let {activeTab} = this.state;
     return (
-      <div className="BothComponents">
+      <div className="identify-container">
         <nav className="Form-nav">
         <ul>
-          <li className={`Form-nav-item ${activeTab===0 && 'selected'}`}><a onClick={() => this.handleTabChange(0)}>Sign In</a>
+          <li className={`Form-nav-item ${activeTab===0 && 'selected'}`}><button onClick={() => this.handleTabChange(0)}>Sign In</button>
           </li>
-          <li className={`Form-nav-item ${activeTab===1 && 'selected'}`}><a onClick={() => this.handleTabChange(1)}>Sign Up</a>
+          <li className={`Form-nav-item ${activeTab===1 && 'selected'}`}><button onClick={() => this.handleTabChange(1)}>Sign Up</button>
           </li>
         </ul>
       </nav>
