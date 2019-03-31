@@ -1,6 +1,12 @@
 require 'pry'
+require 'rest-client'
+require 'json'
+require 'erb'
+
 class CompaniesController < ApplicationController
-  def index
+include ERB::Util
+
+def index
   @companies = Company.all
   render json: @companies
 end 
@@ -20,15 +26,16 @@ def show
   render json: @company
 end 
 
-def search 
-  potential_name = params[:name]
-  uri = URI("https://datafied.api.edgar-online.com/v2/companies?companynames=*#{potential_name}*&limit=10&appkey=#{ENV['API_KEY']}&fields=companyname,primarysymbol,primaryexchange")
-  params = { :limit => 50}
-  uri.query = URI.encode_www_form(params)
-  
-  res = Net::HTTP.get_response(uri)
-  binding.pry 
+  def search 
+    name=url_encode(params['name'])
 
+    url = "https://datafied.api.edgar-online.com/v2/companies.json?companynames=*#{name}*&limit=10&appkey=#{ENV['API_KEY']}&fields=companyname,primarysymbol,primaryexchange"
+   
+    response = RestClient::Request.execute(
+      method: :get,
+      url: url
+      )
+  binding.pry 
 end 
 
 
