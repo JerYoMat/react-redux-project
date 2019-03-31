@@ -16,9 +16,10 @@ ActiveRecord::Schema.define(version: 2019_03_30_185520) do
     t.string "companyname"
     t.string "primarysymbol"
     t.string "primaryexchange"
-    t.string "siccode"
-    t.string "sicdescription"
-    t.string "cik"
+    t.string "industry"
+    t.string "sector"
+    t.string "market_cap"
+    t.date "market_cap_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

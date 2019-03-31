@@ -4,10 +4,10 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :companyname
       t.string :primarysymbol
       t.string :primaryexchange
-      t.string :siccode
-      t.string :sicdescription
-      t.string :cik
-      #t.belongs_to :user
+      t.string :industry
+      t.string :sector
+      t.string :market_cap
+      t.date :market_cap_date
       t.timestamps
     end
   end
