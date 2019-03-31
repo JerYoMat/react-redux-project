@@ -18,7 +18,6 @@ include ERB::Util
       
     elsif Company.find_by(id: ticker)
       @company = Commpany.find(ticker)
-
     else
       @company = Company.new
       data = get_for_new_company(ticker)
