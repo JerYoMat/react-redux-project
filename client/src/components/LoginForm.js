@@ -27,7 +27,7 @@ const LoginPage = ({userError, loadingUser,login, signup}) => {
           name='password'
           type='password'
           value={password}
-          disable={loadingUser}
+          disabled={loadingUser}
           onChange={e => setPassword(e.target.value)}
         />
       </label>

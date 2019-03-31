@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signup, login} from '../actions';
-
+import './SignupForm.css';
 
 const SignupPage = ({userError, loadingUser,login, signup}) => {
   const [email, setEmail] = useState('');
@@ -9,45 +9,51 @@ const SignupPage = ({userError, loadingUser,login, signup}) => {
   
 
   return (
-    <div className='SignupPage'>
-    <p>Please log in or sign up to continue.</p>
-    <form onSubmit={e => e.preventDefault()}>
-      <label>
-        email
-        <input
-          name='email'
-          value={email}
-          disabled={loadingUser}
-          onChange={e => setEmail(e.target.value)}
-        />
-      </label>
-      <label>
-        Password
-        <input
-          name='password'
-          type='password'
-          value={password}
-          disable={loadingUser}
-          onChange={e => setPassword(e.target.value)}
-        />
-      </label>
+    
+    <div className='signup-container'>
       {userError && (
-          <div className="error">{userError.message}</div>
-        )}
-      <button
-        type='submit'
-        onClick={() => login(email, password)}
-      >
-        Signup
-      </button>
-      <button
-        type='submit'
-        onClick={() => signup(email, password)}
-      >
-        Sign Up
-      </button>
-    </form>
-  </div>
+        <div className="error">{userError.message}</div>
+      )}
+      <div className='card center'>
+        <article className='card-body'>
+          <a href='/login' className='float-right btn btn-outline-primary'>Sign In</a>
+          <h4 className='card-title mb-4 mt-1'>Sign Up</h4>
+          <div className='error'></div>
+          <form>
+            <div className='form-group'>
+              <label>Your email</label>
+              <input  
+                className='form-control'
+                placeholder='Email'
+                type='email'
+                value={email}
+                disabled={loadingUser}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div> 
+            <div className='form-group'>
+              <label>Your password</label>
+              <input 
+                className='form-control' 
+                placeholder='******' 
+                type='password'
+                value={password}
+                disabled={loadingUser}
+                onChange={e => setPassword(e.target.value)}
+              />
+            </div>  
+            <div className='form-group'>
+              <button
+                type='submit'
+                className='btn btn-primary btn-block'
+                onClick={() => signup(email, password)}
+                > Sign Up  
+              </button>
+            </div>
+          </form>
+        </article>
+      </div>
+    </div>
   )
 }
 
@@ -57,7 +63,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = {
- login, signup
+  login, signup
 }
 
 export default connect(mapState, mapDispatch)(SignupPage);

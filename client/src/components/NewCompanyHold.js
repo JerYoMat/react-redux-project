@@ -41,7 +41,7 @@ const NewCompany = ({
   
   
   return (
-    <div>
+    <div className='newCompany'>
       
       <form onSubmit={handleSubmit}>
         {companyCreateError && (
