@@ -11,24 +11,6 @@ include ERB::Util
     render json: @companies
   end 
 
-  def create  
-    ticker = params['ticker']
-    if Company.find_by(primaryexchange: ticker)
-      @company = Company.find_by(ticker: ticker)
-      
-    elsif Company.find_by(id: ticker)
-      @company = Commpany.find(ticker)
-    else
-      @company = Company.new
-      data = get_for_new_company(ticker)
-      data.each do |key, value|
-        @company[key] = value
-      end
-      @company.save
-      render json: @company
-    end 
-  end
-
   def show
     @company = Company.find(params[:id])
     render json: @company
@@ -79,3 +61,23 @@ private
 
 
 end 
+
+=begin
+  def create  
+    ticker = params['ticker']
+    if Company.find_by(primaryexchange: ticker)
+      @company = Company.find_by(ticker: ticker)
+      
+    elsif Company.find_by(id: ticker)
+      @company = Commpany.find(ticker)
+    else
+      @company = Company.new
+      data = get_for_new_company(ticker)
+      data.each do |key, value|
+        @company[key] = value
+      end
+      @company.save
+      render json: @company
+    end 
+  end
+=end

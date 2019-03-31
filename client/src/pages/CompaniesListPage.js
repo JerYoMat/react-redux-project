@@ -33,7 +33,7 @@ const CompaniesListPage = ({
           <div className='card col-md-8'key={company.id}>
             <Link to={'/companies/'+ company.id}>
               <div className='card-body'>
-                <p>Name: {company.name}</p>
+                <p>Name: {company.companyname}</p>
                 <p>Ticker: {company.ticker}</p>
                 <p>Exchange: {company.exchange}</p>
               </div>
