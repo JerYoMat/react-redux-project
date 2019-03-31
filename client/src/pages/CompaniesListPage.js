@@ -1,17 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import NewCompany from '../components/NewCompany'
-import { openNewCompanyModal, closeNewCompanyModal } from '../actions';
+
 
 const CompaniesListPage = ({ 
   companies, 
   loadingCompanies,
-  companyLoadError,
-  isModalOpen,
-  openNewCompanyModal,
-  closeNewCompanyModal
+  companyLoadError
 }) => {
   if (loadingCompanies) {
     return <div/>;
@@ -27,27 +23,18 @@ const CompaniesListPage = ({
     ) : (
     <div>
       <h1>Company Index:</h1>
-      <button onClick={openNewCompanyModal}>Add Company</button>
-      
         {companies.map(company => (
           <div className='card col-md-8'key={company.id}>
             <Link to={'/companies/'+ company.id}>
               <div className='card-body'>
                 <p>Name: {company.companyname}</p>
-                <p>Ticker: {company.ticker}</p>
-                <p>Exchange: {company.exchange}</p>
+                <span>Ticker: {company.primarysymbol}</span>
+                <span>Exchange: {company.primaryexchange}</span>
+                <p>Market Cap: {(company.market_cap).toLocaleString('en')}</p>
               </div>
             </Link>
           </div>
         ))}
-      
-      <Modal 
-        className='new-company-modal'
-        isOpen={isModalOpen}
-        onRequestClose={closeNewCompanyModal}
-      >
-        <NewCompany />
-      </Modal>
     </div>
     )
   )
@@ -59,9 +46,5 @@ const mapStateToProps = state => ({
   companyLoadError: state.companyLoadError,
   isModalOpen: state.newCompanyModalOpen
 })
-const mapDispatch = {
-  openNewCompanyModal,
-  closeNewCompanyModal
-}
 
-export default connect(mapStateToProps, mapDispatch)(CompaniesListPage);
+export default connect(mapStateToProps)(CompaniesListPage);
