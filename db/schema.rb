@@ -65,11 +65,11 @@ ActiveRecord::Schema.define(version: 2019_03_30_185520) do
     t.integer "netchangeincash"
     t.string "formtype"
     t.string "audited"
-    t.string "original"
+    t.boolean "original"
     t.string "amended"
-    t.string "preliminary"
+    t.boolean "preliminary"
     t.string "currencycode"
-    t.string "crosscalculated"
+    t.boolean "crosscalculated"
     t.string "usdconversionrate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

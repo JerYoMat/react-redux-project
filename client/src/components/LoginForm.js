@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signup, login} from '../actions';
-
+import './LoginForm.css'
 
 const LoginPage = ({userError, loadingUser,login, signup}) => {
   const [email, setEmail] = useState('');
@@ -10,8 +10,9 @@ const LoginPage = ({userError, loadingUser,login, signup}) => {
 
   return (
     <div className='LoginPage'>
-    <p>Please log in or sign up to continue.</p>
+   
     <form onSubmit={e => e.preventDefault()}>
+    <p>Please enter your credentials to continue.</p>
       <label>
         email
         <input
@@ -34,18 +35,14 @@ const LoginPage = ({userError, loadingUser,login, signup}) => {
       {userError && (
           <div className="error">{userError.message}</div>
         )}
+      <label>
       <button
         type='submit'
         onClick={() => login(email, password)}
       >
         Login
       </button>
-      <button
-        type='submit'
-        onClick={() => signup(email, password)}
-      >
-        Sign Up
-      </button>
+      </label>
     </form>
   </div>
   )

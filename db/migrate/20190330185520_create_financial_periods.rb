@@ -41,11 +41,11 @@ class CreateFinancialPeriods < ActiveRecord::Migration[5.2]
       t.integer :netchangeincash 
       t.string :formtype 
       t.string :audited 
-      t.string :original 
+      t.boolean :original 
       t.string :amended 
-      t.string :preliminary 
+      t.boolean :preliminary 
       t.string :currencycode 
-      t.string :crosscalculated 
+      t.boolean :crosscalculated 
       t.string :usdconversionrate
       t.timestamps
     end

@@ -35,3 +35,4 @@ class FinancialPeriodSerializer < ActiveModel::Serializer
   :currencycode,
   :crosscalculated,
   :usdconversionrate
+end 

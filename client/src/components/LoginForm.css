@@ -1,0 +1,22 @@
+.LoginPage {
+  margin-top: 30vh;
+  position: relative;
+  width: 50vw;
+  max-width: 500 px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.LoginPage form{
+  position: absolute;
+}
+
+.LoginPage form label {
+  display: block;
+ 
+}
+
+.LoginPage form label input,button {
+  float: right;
+  background-color: green;
+}
