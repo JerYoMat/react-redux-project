@@ -36,8 +36,8 @@ export const LOAD_COMPANIES_BEGIN = 'LOAD_COMPANIES_BEGIN';
 export const LOAD_COMPANIES_SUCCESS = 'LOAD_COMPANIES_SUCCESS';
 export const LOAD_COMPANIES_ERROR = 'LOAD_COMPANIES_ERROR';
 
-export const loadCompanies = () => {
-  return dispatch => {
+export const loadCompanies = () => {  
+  return dispatch => {  //the second param here can be state.
     dispatch({ type: LOAD_COMPANIES_BEGIN })
     getCompanies()
       .then(companies => {

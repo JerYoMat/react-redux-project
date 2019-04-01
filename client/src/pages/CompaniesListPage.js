@@ -31,6 +31,7 @@ const CompaniesListPage = ({
                 <span>Ticker: {company.primarysymbol}</span>
                 <span>Exchange: {company.primaryexchange}</span>
                 <p>Market Cap: {(company.market_cap).toLocaleString('en')}</p>
+                <span>Industry: </span><span>Sector: </span>
               </div>
             </Link>
           </div>
