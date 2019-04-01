@@ -5,8 +5,6 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       log_in @user
       render json: @user
-    else
-      render json: {'response': 'invalid creds'} 
     end 
   end 
 
