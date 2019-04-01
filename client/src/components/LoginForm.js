@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { signup, login} from '../actions';
 import './LoginForm.css'
 
-const LoginPage = ({userError, loadingUser,login, signup}) => {
+const LoginPage = ({userError, loadingUser,login}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
 
   return (
     <div className='LoginPage'>
-   
+
     <form onSubmit={e => e.preventDefault()}>
     <p>Please enter your credentials to continue.</p>
       <label>
@@ -54,7 +54,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = {
- login, signup
+  login
 }
 
 export default connect(mapState, mapDispatch)(LoginPage);

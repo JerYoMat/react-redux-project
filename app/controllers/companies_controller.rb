@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
 include ERB::Util
 
   def index
-    @companies = Company.limit(100)
+    @companies = Company.all
     render json: @companies
   end 
 
@@ -26,7 +26,6 @@ include ERB::Util
       dataAry.each do |data|
         new_financial_period = @company.financial_periods.build()
         data.each do |key, value|
-          binding.pry 
           if ['receiveddate', 'periodenddate'].include?(key)
             value = return_date(value)
           end 

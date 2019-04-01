@@ -17,12 +17,7 @@ class NewCompany extends Component {
   }
   
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.dispatch(
-      addCompany(this.state)
-    )
-  }
+
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value});
   }
@@ -61,9 +56,13 @@ const mapStateToProps = (state) => ({
   companyCreateError: state.companyCreateError
 })
 
+const mapDispatch = (dispatch) => ({
+  addCompany
+})
 
 
-export default connect(mapStateToProps)(NewCompany);
+
+export default connect(mapStateToProps, mapDispatch)(NewCompany);
 
 /*
       fiscalYear: null,

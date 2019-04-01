@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavbarCustom.scss';
 import * as coda from '../images/coda.png';
-
+import Search from './Search';
 const NavbarCustom = () => {
   
   return (

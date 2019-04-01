@@ -23,6 +23,8 @@ const composeEnhancers =
 const enhancer = composeEnhancers(applyMiddleware(thunk));
 const store = createStore(reducer, enhancer);
 store.dispatch(loadCompanies());
+
+
 Modal.setAppElement('#root');
 ReactDOM.render(
   <Provider store={store}>
