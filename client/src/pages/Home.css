@@ -1,20 +1,18 @@
-div.wrapper {
-  overflow:hidden
+.wrapper {
+  overflow: hidden;
 }
 
 .sliding-background {
-  background: url("..path/to/image") repeat-x;
-  height: 560px;
-  width: 5076px;
-  animation: slide 60s linear infinite;
+  background: url("../images/background2.jpg") repeat-x;
+  height: 200px;
+  position: relative;
 }
 
-
-@keyframes slide{
-  0%{
-    transform: translate3d(0, 0, 0);
-  }
-  100%{
-    transform: translate3d(-1692px, 0, 0);
-  }
+.sliding-background div {
+  position: relative;
+  width: 30vw;
+  max-width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

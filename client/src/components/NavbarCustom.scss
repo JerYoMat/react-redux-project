@@ -6,16 +6,20 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+
+a svg.coda path {
+  stroke: $active;
+  height: 12px;
+  fill: $background-one;
+}
+
+
 nav.navbar {
   background-color: #013240;
   color: white;
   a.navbar-brand {
     color: $active;
-    img {
-      line-height: 1em;
-      height: 1.2em;
-      margin-right: 3px;
-    }
+    
     span{ 
       color: $primary;
       font-size: 1em;

@@ -75,7 +75,6 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const signup = (email, password) => {
   return dispatch => {
     dispatch({ type: SIGNUP_BEGIN })
-    console.log(email, password)
     createUser(email, password)
       .then(user => {
         dispatch({ type: SIGNUP_SUCCESS, payload: user})  

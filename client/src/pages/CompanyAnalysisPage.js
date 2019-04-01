@@ -41,8 +41,8 @@ const CompanyAnalysisPage = ({ companyId, company, loading }) => {
 
 const mapState = (state, ownProps) => {
   return {
-    loading: state.companies.loadingCompanies,
-    company: state.companies.find(c => c.id === parseInt(ownProps.companyId, 10))
+    loading: state.companies.companies.loadingCompanies,
+    company: state.companies.companies.find(c => c.id === parseInt(ownProps.companyId, 10))
   }
 }
 

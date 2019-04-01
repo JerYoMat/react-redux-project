@@ -49,8 +49,8 @@ const LoginPage = ({userError, loadingUser,login}) => {
 }
 
 const mapState = (state) => ({
-  loadingUser: state.loadingUser,
-  userError: state.userError
+  loadingUser: state.users.loadingUser,
+  userError: state.users.userError
 });
 
 const mapDispatch = {

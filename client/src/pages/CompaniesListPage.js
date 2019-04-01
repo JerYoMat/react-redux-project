@@ -41,10 +41,9 @@ const CompaniesListPage = ({
 }
 
 const mapStateToProps = state => ({
-  companies: state.companies,
-  loadingCompanies: state.loadingCompanies,
-  companyLoadError: state.companyLoadError,
-  isModalOpen: state.newCompanyModalOpen
+  companies: state.companies.companies,
+  loadingCompanies: state.companies.loadingCompanies,
+  companyLoadError: state.companies.companyLoadError
 })
 
 export default connect(mapStateToProps)(CompaniesListPage);

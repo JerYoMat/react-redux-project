@@ -52,8 +52,8 @@ class NewCompany extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  saveInProgress: state.saveInProgress,  
-  companyCreateError: state.companyCreateError
+  saveInProgress: state.companies.saveInProgress,  
+  companyCreateError: state.companies.companyCreateError
 })
 
 const mapDispatch = (dispatch) => ({

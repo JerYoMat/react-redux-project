@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Modal from 'react-modal';
-import reducer from './reducer';
+import reducer from './reducers/index';
 import App from './App';
 
 
